@@ -28,6 +28,9 @@ $(document).ready(function() {
     // 기상청 동네예보 rss url
     // https://www.weather.go.kr/weather/lifenindustry/sevice_rss.jsp
     
+    // theme
+    var global_theme = "theme-default"
+
     // 동네
     var dongUrl = "http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=";
     var zone = "4113565000";
@@ -59,36 +62,34 @@ $(document).ready(function() {
     }
 
     // content A 생성 함수 (동네 날씨 24)
-    function createConA(dongReqUrl) {
+    function createConA(dongReqUrl, theme) {
         $.ajax({
             url : dongReqUrl,
             type : "GET",
             cache : false,
             success : function(data, status) {
                 if (status == "success") {
-                    parseXML(data);
+                    parseXML(data, theme);
                 }
             }
         })
     
         // conA 내용 parse
-        function parseXML(xmlDOM) {
+        function parseXML(xmlDOM, theme) {
             var pubDate = $(xmlDOM).find('pubDate').text();
             var location = $(xmlDOM).find('category').text();
-            var data = $(xmlDOM).find('data').text();
-    
             $('#location').text(location);
             $('#pubDate').text(pubDate)
 
-            //$('#data').text(data);
-            
+           
             var images = [];
             var infos = [];
             var details = [];
             $(xmlDOM).find('data').each(function() {
                 var text = "";
                 var imgHtml = "";
-                var imgSrc = "images/test.png";
+
+                var imgSrc = "images/" + theme + "/";
                 // main contents
                 var day = $(this).find("day").text();
                 var hour = $(this).find("hour").text();
@@ -99,30 +100,30 @@ $(document).ready(function() {
                 
                 // 날씨 한국어(맑음, 구름 많음, 흐림, 비, 비/눈, 눈, 소나기)
                 if (wfKor == "맑음") {
-                    imgSrc = "images/sun.png";
+                    imgSrc += "sun.png";
                     weather += '<i class="fas fa-sun fa-inverse"></i>'
                 } else if (wfKor == "구름 많음") {
-                    imgSrc = "images/clouds.png";
+                    imgSrc += "clouds.png";
                     weather += '<i class="fas fa-cloud fa-inverse"></i>';
                 } else if (wfKor == "흐림") {
-                    imgSrc = "images/cloud-dark.png";
+                    imgSrc += "cloud-dark.png";
                     weather += '<i class="fas fa-cloud"></i>'
     
                 } else if (wfKor == "비") {
-                    imgSrc = "images/rainy.png";
+                    imgSrc += "rainy.png";
                     weather += '<i class="fas fa-umbrella"></i>'
     
                 } else if (wfKor == "비/눈") {
-                    imgSrc = "images/snow-rain.png";
+                    imgSrc += "snow-rain.png";
                     weather += '<i class="fas fa-umbrella"></i>'
                     weather += '<i class="far fa-snowflake"></i>'
                     
                 } else if (wfKor == "눈") {
-                    imgSrc = "images/snowy.png";
+                    imgSrc += "snowy.png";
                     weather += '<i class="far fa-snowflake"></i>'
     
                 } else if (wfKor == "소나기") {
-                    imgSrc = "images/shower.png";
+                    imgSrc += "shower.png";
                     weather += '<i class="fas fa-cloud-showers-heavy"></i>'
                 }
 
@@ -200,6 +201,25 @@ $(document).ready(function() {
         });
     });
 
+    // theme 설정 확인 버튼
+    $('input[name="themeOption"]').change(function() {
+        // 모든 radio를 순회한다.
+        $('input[name="themeOption"]').each(function() {
+            var value = $(this).val();              // value
+            var checked = $(this).prop('checked');  // jQuery 1.6 이상 (jQuery 1.6 미만에는 prop()가 없음, checked, selected, disabled는 꼭 prop()를 써야함)
+            // var checked = $(this).attr('checked');   // jQuery 1.6 미만 (jQuery 1.6 이상에서는 checked, undefined로 return됨)
+            // var checked = $(this).is('checked');
+            
+            if(checked) {
+                global_theme = value;
+                createConA(dongReqUrl, global_theme);
+            } else {
+
+            }
+                
+        });
+    });
+
     // zoneCode 위치 검색 함수
     $('#locationSearchBtn').click(function() {
         if ($('#addr').val().trim() == "") {
@@ -239,8 +259,9 @@ $(document).ready(function() {
             alert("zonecode를 입력하세요.");
             return;
         }
-
-        createConA(dongUrl + $('#zoneCode').val());
+        zone = $('#zoneCode').val();
+        dongReqUrl = dongUrl + zone;
+        createConA(dongReqUrl, global_theme);
 
         $("#locationModal").css("display","none");
         $("#locationSearchRes").empty();
@@ -259,15 +280,6 @@ $(document).ready(function() {
         $("#myModal").css("display","none");
     })
     
-    // Get the modal
-    var modal = document.getElementById("myModal");
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-
     // Location 모달 버튼
     // When the user clicks on the button, open the modal
     $('#locationBtn').click(function() {
@@ -277,18 +289,31 @@ $(document).ready(function() {
     $('.close').click(function() {
         $("#locationModal").css("display","none");
     })
+
+    // theme 모달 버튼
+    // When the user clicks on the button, open the modal
+    $('#themeBtn').click(function() {
+        $("#themeModal").css("display","block");
+    });
+    // When the user clicks on <span> (x), close the modal
+    $('.close').click(function() {
+        $("#themeModal").css("display","none");
+    })
     
-    // Get the modal
-    var modal = document.getElementById("locationModal");
+    
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
+        if (event.target == document.getElementById("myModal") 
+            || event.target == document.getElementById("locationModal")
+            || event.target == document.getElementById("themeModal")) {
+            document.getElementById("myModal").style.display = "none";
+            document.getElementById("locationModal").style.display = "none";
+            document.getElementById("themeModal").style.display = "none";
         }
     }
     
     // 초기 실행
-    createConA(dongReqUrl);
+    createConA(dongReqUrl, global_theme);
     createConB(midReqUrl);
 })
 
