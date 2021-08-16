@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html lang='ko'>
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>우리 동네 날씨는?</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>우리 동네 날씨는?</title>
 </head>
+
+
+<!-- google font -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+<!-- FontAwesome -->
+<script src="https://use.fontawesome.com/926fe18a63.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+<!--CDN 링크 -->
 
 <!-- jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 <!-- 스크립트 및 스타일  -->
 <script src="./script/myScript.js"></script>
 <link rel="stylesheet" href="./CSS/style.css">
@@ -15,6 +26,216 @@
 
 
 <body>
-    <div id="result">aa</div>
+  <!-- header start -->
+  <header>
+    <div class="container">
+
+      <div class="container-small">
+        <!-- 작은 화면의 배치를 위한 컨테이너-->
+        <a class="headA" href="index.html">우리동네 날씨</a>
+
+        <!-- 메뉴 토글 버튼 -->
+        <button class="headC" type="button">
+          <span class="fa fa-bars" title="MENU"></span>
+        </button>
+      </div>
+      <!-- 내비게이션 메뉴 -->
+      <nav class="headB">
+        <ul>
+          <li>
+            <!-- Trigger/Open The Modal -->
+            <div id="locationBtn">위치</div>
+          </li>
+          <li>
+            <!-- Trigger/Open The Modal -->
+            <div id="themeBtn">테마</div>
+          </li>
+          <li>
+            <!-- Trigger/Open The Modal -->
+            <div id="aboutBtn">About</div>
+          </li>
+        </ul>
+      </nav>
+
+    </div>
+
+    <!-- The Modal(about) -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close">&times;</span>
+          <h2>About</h2>
+        </div>
+        <div class="modal-body">
+          <p><span style="font-weight: bold;">우리동네 날씨</span>는 날씨 정보를 알려주는 웹 사이트입니다. </p>
+          <p>
+            <span style="font-weight: bold;">전국 기상 소식</span>에서는 기상청 중기 예보 정보를 활용하여 전국권의 기본적인 날씨 정보를 알려줍니다.
+          </p>
+          <p>
+            <span style="font-weight: bold;">동네 날씨 24</span>에서는 가장 최신의 기상청 예보 시간 1시간 이후부터 3시간 간격으로 8개의 정보, 즉 24시간의 정보를 알려줍니다.
+            또한 지역과 그림 테마를 설정할 수 있는 기능을 제공하고 있습니다.
+          </p>
+          <p>
+            마지막으로 <span style="font-weight: bold;">기상 포커스</span>에서는 기상과 관련된 뉴스 정보를 제공합니다.
+          </p>
+          <p> 기상청 RSS 서비스를 사용하여 날씨 정보를 얻고 이를 활용하여 서비스를
+            제공하고 있습니다.</p>
+        </div>
+        <div class="modal-footer">
+          <p>seop1284@gmail.com</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- The Modal(about) -->
+    <div id="locationModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close">&times;</span>
+          <h2>위치 설정</h2>
+        </div>
+        <div class="modal-body">
+          <br>
+          <table>
+            <tr>
+              <td><input class="text-short" type="text" id="addr" name="addr" placeholder="ex) 판교"></td>
+              <td><button id="locationSearchBtn" type="button">정보 가져오기</button></td>
+            </tr>
+          </table>
+          <div id="locationSearchRes" style="display: none;">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <input type="number" id="zoneCode" name="zoneCode" placeholder="zone code">
+          <button type="button" id="zoneCodeBtn">검색</button>
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+<!-- <i class="far fa-newspaper"></i> -->
+
+  <!--main contents start-->
+  <!-- content B -->
+  <section class="conB">
+    <div class="container">
+      <div class="conB-box">
+        <dl>
+          <dt style="font-weight: bold;"><i class="fas fa-bullhorn "></i> 전국 기상 소식</dt>
+          <dd id="contentB-content"></dd>
+        </dl>
+      </div>
+    </div>
+    </section>
+  </section>
+
+
+  <!-- content A -->
+  <section class="conA">
+
+    <div class="conA-header">
+      <p style="font-weight: bold;"><i class="fab fa-mixcloud"></i> 동네 날씨 24</p>
+      <p id="pubDate"> </p>
+      <p id="location"> </p>
+    </div>
+    <div class="container">
+      <span class="row">
+        <div id="card1" class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="images/test.png" alt="Avatar" style="width: 100%">
+            </div>
+            <div class="flip-card-back">
+            </div>
+          </div>
+        </div>
+        <div id="card2" class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="images/test.png" alt="Avatar" style="width: 100%">
+            </div>
+            <div class="flip-card-back">
+            </div>
+          </div>
+        </div>
+        <div id="card3" class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="images/test.png" alt="Avatar" style="width: 100%">
+            </div>
+            <div class="flip-card-back">
+            </div>
+          </div>
+        </div>
+        <div id="card4" class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="images/test.png" alt="Avatar" style="width: 100%">
+            </div>
+            <div class="flip-card-back">
+            </div>
+          </div>
+        </div>
+      </span>
+
+      <span class="row">
+        <div id="card5" class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="images/test.png" alt="Avatar" style="width: 100%">
+            </div>
+            <div class="flip-card-back">
+            </div>
+          </div>
+        </div>
+        <div id="card6" class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="images/test.png" alt="Avatar" style="width: 100%">
+            </div>
+            <div class="flip-card-back">
+            </div>
+          </div>
+        </div>
+        <div id="card7" class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="images/test.png" alt="Avatar" style="width: 100%">
+            </div>
+            <div class="flip-card-back">
+            </div>
+          </div>
+        </div>
+        <div id="card8" class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="images/test.png" alt="Avatar" style="width: 100%">
+            </div>
+            <div class="flip-card-back">
+            </div>
+          </div>
+        </div>
+      </span>
+
+    </div>
+  </section>
+  
+
+  <!-- main contents end -->
+
+
+  <!-- footer start -->
+  <footer>
+
+
+  </footer>
+  <!-- footer end -->
+
 </body>
+
 </html>

@@ -1,0 +1,351 @@
+/* 기본색상 */
+:root {
+    --main-color: #5D9AB2;
+    --accent-color: #BF6A7A;
+    --dark-main-color: #2B5566;
+    --text-bright-color: #fff;
+    --icon-color: #fff;
+    --icon-bk-color: #ddd;
+    --large-width: 1300px;    
+}
+
+/* 기본 설정: 페이지 전체 */
+body {
+	background-color: #fff;	/* temp */
+	
+    margin: 0;
+    font-family: '맑은 고딕',
+        'Apple SD Gothic Neo', 
+        sans-serif;
+}
+
+/* ----------------------------------- header start ----------------------------------- */
+/* 헤더 */
+header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	width: 100%;
+}
+
+header .container {
+	padding: 0;
+	background-color: var(--main-color);
+}
+
+/* 헤더 A: 사이트 이름 */
+.headA {
+	display: inline-block;
+	line-height: 70px;
+	padding-left: 20px;
+	padding-right: 20px;
+	color: #fff;
+	color: var(--text-bright-color);
+	font-family: 'Montserrat', sans-serif;
+	font-size: 15px;
+	text-decoration: none;
+}
+
+/* 헤더B: 네비게이션 메뉴 */
+.headB ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.headB div {
+	display: block;
+	padding: 15px;
+	color: var(--text-bright-color);
+	font-size: 15px;
+	text-decoration: none;
+}
+
+.headB div:hover {
+	background-color: rgba(0,0,0,0.3);
+}
+
+@media (min-width: 768px) {
+    /* 768 이상 큰 화면에서는 */
+    header .container {
+		/* 사이트이름 과 내비게이션 메뉴를 각각 왼쪽/오른쪽으로 배치하기 */
+		display: flex;
+		align-items: center;  /* 세로 방향으로 중앙 정렬 */
+		justify-content: space-between; /* 왼쪽 오른쪽 끝방향으로 정렬 */
+
+		/* 하단 컨텐츠와 너비 맞추기*/
+		max-width: 1300px;
+		max-width: var(--large-width);
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	.headB ul {
+		/* 링크를 가로로 정렬 */
+        display: flex;
+	}
+
+    /* 큰 화면에선 메뉴 보이기 */
+	.headB {
+		display: block !important;
+	}
+
+    /* 큰 화면에선 토글 메뉴 숨기기 */
+    .headC {
+		display: none;
+	}
+}
+
+/* 헤더C: 토글 버튼 */
+@media (max-width: 767px) {  /* 768 이하 */
+	/* 작은 화면 전용 설정 */
+	header .container-small {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	/* 토글 버튼 스타일 */
+	.headC {
+		margin-right: 10px;
+		padding: 0;
+		border: none;
+		outline: none;
+		background: none;
+		font-size: 24px;
+		opacity: 0.5;
+		cursor: pointer;
+	}
+
+	.headC:hover {
+		opacity: 0.3;
+	}
+
+	/* 작은 화면에선 메뉴 감추기 */
+	.headB {
+		display: none;
+	}
+}
+
+/* about */
+/* The Modal (background) */
+.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+/* Modal Content */
+.modal-content {
+	position: relative;
+	background-color: #fefefe;
+	margin: auto;
+	margin-top: 100px;
+	padding: 0;
+	border: 1px solid #888;
+	width: 60%;
+	max-width: 600px;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+	/* animation-name: animatetop; */
+	animation-duration: 0.4s
+}
+
+/* Modal Header */
+.modal-header {
+	padding: 2px 16px;
+	background-color: #5cb85c;
+	color: white;
+}
+/* Modal Body */
+.modal-body {
+	padding: 2px 16px;
+}
+
+
+/* Modal Footer */
+.modal-footer {
+	padding: 2px 16px;
+	background-color: #5cb85c;
+	color: white;
+}
+
+
+/* Add Animation */
+@keyframes animatetop {
+	from {top: 0px; opacity: 0}
+	to {top: 100px; opacity: 1}
+}
+
+/* The Close Button */
+.close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+/* ----------------------------------- header end ----------------------------------- */
+
+
+/* ----------------------------------- contents start ----------------------------------- */
+
+/* -------------- conB -------------- */
+
+.conB .container {
+	justify-content: center;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #fff;
+	/* border: 1px solid black; */
+	
+}
+.conB-box {
+	margin-top: 10px;
+	padding: 1% 3%;
+	border-radius: 15px;
+
+
+	background-color: #ebebeb;
+}
+.conB dt {
+	margin-bottom: 10px;
+}
+.conB dd {
+	margin-left: 0;
+}
+@media (min-width: 1300px) { /* 768 이상 (pc) */
+
+	.conB {
+		justify-content: center;
+		max-width: 1300px;  /* 최대 폭 지정 */
+		max-width: var(--large-width);
+		margin-left: auto;
+		margin-right: auto;
+	}
+    /* flexible box 기능으로 가로 정렬 */
+	.conB .container { /* 그래서, 부모를 flex 로 설정 */
+        display: flex;
+		justify-content: center;
+		width: 100%;
+		background-color: #fff;
+	  	margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+
+/* -------------- conA -------------- */
+/* 날씨 그림 카드 배치 */
+.conA {
+	/* justify-content: center; */
+	margin-top: 10px;
+	border-radius: 15px;
+	padding: 1% 0;
+
+	background-color: rgb(212, 250, 237);
+	/* border: 1px solid black; */
+}
+.conA .container {
+	justify-content: center;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: rgb(212, 250, 237);
+	/* border: 1px solid black; */
+}
+
+.conA-header {
+	margin-left: 3%;
+	margin-right: auto;
+}
+
+.conA .row {
+	display: flex;
+	justify-content: center;
+
+}
+
+
+
+@media (min-width: 1300px) { /* 768 이상 (pc) */
+
+	.conA {
+		justify-content: center;
+		max-width: 1300px;  /* 최대 폭 지정 */
+		max-width: var(--large-width);
+		margin-left: auto;
+		margin-right: auto;
+	}
+    /* flexible box 기능으로 가로 정렬 */
+	.conA .container { /* 그래서, 부모를 flex 로 설정 */
+        display: flex;
+		justify-content: center;
+		width: 100%;
+	  	margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+/* card 스타일 */
+.flip-card {
+	background-color: transparent;
+	width: 150px;
+	height: 300px;
+	perspective: 1300px;
+	margin: 5px;
+}
+
+.flip-card-inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	transition: transform 0.6s;
+	transform-style: preserve-3d;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	
+}
+
+.flip-card:hover .flip-card-inner {
+	transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+
+.flip-card-front {
+	background-color: var(--main-color);
+	color: black;
+	/* border-radius: 30px; */
+}
+
+.flip-card-back {
+	background-color: #2980b9;
+	color: black;
+	transform: rotateY(180deg);
+	/* border-radius: 30px; */
+}
+
+/* -------------- conC -------------- */
+
+
+/* ----------------------------------- contents end ----------------------------------- */
