@@ -289,8 +289,8 @@ $(document).ready(function() {
     // zoneCode 위치 검색 함수
     $('#locationSearchBtn').click(function() {
         // 지역명 값 검증
-        if ($('#addr').val().trim() == "") {
-            alert("지역명이 비어있습니다.");
+        if ($('#addr').val().trim() == "" || $('#addr').val().trim().length < 2) {
+            alert("검색은 2글자 이상 입력해야 합니다.");
             return;
         }
 
@@ -299,7 +299,7 @@ $(document).ready(function() {
         
         res.load("data/zone_code.txt", function (data) {
             var lines = data.split("\n");
-            var table = "<tr><th>코드번호</th><th>시/구</th><th>동/면</th><th> </th></tr>";
+            var table = "<tr><th>시/구</th><th>동/면</th><th>코드번호</th><th> </th></tr>";
 
             for (i = 0; i < lines.length; i++) {    
                 var line = lines[i];
@@ -307,9 +307,10 @@ $(document).ready(function() {
                     var elements = line.replace(/code=|name=|parentCode=|parentName=|gridX=|gridY=/g, "").split(", ");
                     if (elements[3] == 'null'  || elements[0].length < 10) continue;
                     table += "<tr>";
-                    table += "<td>" + elements[0] + "</td>";
+                    
                     table += "<td>" + elements[3] + "</td>";
                     table += "<td>" + elements[1] + "</td>";
+                    table += "<td>" + elements[0] + "</td>";
                     table += '<td><button type="button" name="add" value="' + elements[0] + '">선택</button></td>' ;
                     table += "</tr>";
                 }
