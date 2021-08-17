@@ -425,11 +425,13 @@ button:hover {
 	width: 100%;
 	border-radius: 15px;
 	background-color: #ebebeb;
+	overflow: hidden;
 	/* border: 1px solid black; */
 
 }
 
 .conC-box {
+	width: 100%;
 	padding: 1% 3%;
 	border-radius: 15px;
 	display: table;
@@ -568,8 +570,6 @@ button:hover {
 #job_notice {
 	float: left;
 	margin: 1% 0;
-
-	
 }
 
 
@@ -578,12 +578,17 @@ button:hover {
     border-collapse:collapse;
     text-align: center;    
 }
+#job_notice tr {
+	width: 100%;
+	overflow: hidden;
+}
 
 #job_notice td {
     padding:6px 4px;
     border-bottom-width: 1px;
     border-bottom-style: dotted;
     border-bottom-color: #999;
+	
 }
 
 #job_notice td.contxt {
