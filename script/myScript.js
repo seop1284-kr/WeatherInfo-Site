@@ -293,28 +293,37 @@ $(document).ready(function() {
             alert("검색은 2글자 이상 입력해야 합니다.");
             return;
         }
+        if ($.isNumeric($('#addr').val().trim())) {
+            alert("숫자로 검색은 불가능합니다.");
+            return;
+        }
 
         // res 결과가 들어갈 html element
         var res = $("#locationSearchRes");
         
         res.load("data/zone_code.txt", function (data) {
             var lines = data.split("\n");
-            var table = "<tr><th>시/구</th><th>동/면</th><th>코드번호</th><th> </th></tr>";
-
+            var table = "";
+            
             for (i = 0; i < lines.length; i++) {    
                 var line = lines[i];
                 if ( line.includes($('#addr').val()) ) {
                     var elements = line.replace(/code=|name=|parentCode=|parentName=|gridX=|gridY=/g, "").split(", ");
                     if (elements[3] == 'null'  || elements[0].length < 10) continue;
+                    
                     table += "<tr>";
                     
                     table += "<td>" + elements[3] + "</td>";
                     table += "<td>" + elements[1] + "</td>";
-                    table += "<td>" + elements[0] + "</td>";
+                    // table += "<td>" + elements[0] + "</td>";
                     table += '<td><button type="button" name="add" value="' + elements[0] + '">선택</button></td>' ;
                     table += "</tr>";
                 }
             }
+            
+            // 결과가 하나도 없을 때
+            if (table == "") table = "결과 없음";
+            else table = "<tr><th>시/구</th><th>동/면</th><th> </th></tr>" + table;
 
             res.html(table);
             res.css("display", "block");
