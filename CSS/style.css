@@ -11,7 +11,9 @@
 
 /* 기본 설정: 페이지 전체 */
 body {
-	background-image: "images/blonde-1867768_640.jpg";
+	background-image: url("../images/background.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
     margin: 0;
     font-family: '맑은 고딕',
         'Apple SD Gothic Neo', 
@@ -266,7 +268,6 @@ button:hover {
 	justify-content: center;
 	margin-left: auto;
 	margin-right: auto;
-	background-color: #fff;
 	/* border: 1px solid black; */
 	
 }
@@ -302,7 +303,6 @@ button:hover {
         display: flex;
 		justify-content: center;
 		width: 100%;
-		background-color: #fff;
 	  	margin-left: auto;
 		margin-right: auto;
 	}
@@ -316,8 +316,8 @@ button:hover {
 	margin-top: 10px;
 	border-radius: 15px;
 	padding: 1% 0;
-
-	background-color: rgb(212, 250, 237);
+	background-color: rgb(230, 245, 240);
+	/* background-color: rgb(212, 250, 237); */
 	/* border: 1px solid black; */
 }
 .conA .container {
@@ -325,7 +325,8 @@ button:hover {
 	justify-content: center;
 	margin-left: auto;
 	margin-right: auto;
-	background-color: rgb(212, 250, 237);
+	background-color: rgb(230, 245, 240);
+	/* background-color: rgb(212, 250, 237); */
 	/* border: 1px solid black; */
 }
 
