@@ -39,8 +39,74 @@ $(document).ready(function() {
     // 중기 
     var midReqUrl = "http://www.kma.go.kr/weather/forecast/mid-term-rss3.jsp?stnId=108"
 
-    // content C 생성 함수 (기상 포커스)
+    // 기상 포커스
+    var focusUrl = "http://www.kma.go.kr/servlet/NeoboardProcess?mode=rss&bid=focus&url=http%3A%2F%2Fwww.kma.go.kr%2Fnotify%2Ffocus%2Flist.jsp";
+    
+    // 채용 정보
+    var jobUrl = "http://www.kma.go.kr/servlet/NeoboardProcess?mode=rss&bid=recruit&url=http%3A%2F%2Fwww.kma.go.kr%2Fnotify%2Femploy%2Flist_01.jsp";
 
+    // content C 생성 함수 (기상 포커스)
+    function createConC(focusUrl) {
+        $.ajax({
+            url: focusUrl,
+            type : "GET",
+            cache : false,
+            success : function(data, status) {
+                if (status == "success") {
+                    parseXML(data);
+                }
+            }
+        })
+
+        function parseXML(xmlDOM) {
+            var table = "";
+            $(xmlDOM).find('item').each(function(){
+                var date = "";
+                var title = $(this).find('title').text();
+                var link = $(this).find('link').text();
+                var pubDate = $(this).find('pubDate').text();
+                pubDate = pubDate.split(" ");
+                date = pubDate[5] + "." + pubDate[1] + "." + pubDate[2];
+
+                table += "<tr><td class='contxt'><a href='" + link + "' target='_blank'>" + title + "</a></td>";
+                table += "<td>" + date + "</td></tr>"
+            });
+            
+            $("#news_table").html(table);
+
+        }
+    }
+    // content D 생성 함수 (채용 정보)
+    function createConD(jobUrl) {
+        $.ajax({
+            url: jobUrl,
+            type : "GET",
+            cache : false,
+            success : function(data, status) {
+                if (status == "success") {
+                    parseXML(data);
+                }
+            }
+        })
+
+        function parseXML(xmlDOM) {
+            var table = "";
+            $(xmlDOM).find('item').each(function(){
+                var date = "";
+                var title = $(this).find('title').text();
+                var link = $(this).find('link').text();
+                var pubDate = $(this).find('pubDate').text();
+                pubDate = pubDate.split(" ");
+                date = pubDate[5] + "." + pubDate[1] + "." + pubDate[2];
+
+                table += "<tr><td class='contxt'><a href='" + link + "' target='_blank'>" + title + "</a></td>";
+                table += "<td>" + date + "</td></tr>"
+            });
+            
+            $("#job_table").html(table);
+
+        }
+    }
 
     // content B 생성 함수 (전국 날씨 소식)
     function createConB(midReqUrl) {
@@ -337,6 +403,8 @@ $(document).ready(function() {
     // 초기 실행
     createConA(dongReqUrl, global_theme);
     createConB(midReqUrl);
+    createConC(focusUrl);
+    createConD(jobUrl);
 })
 
 

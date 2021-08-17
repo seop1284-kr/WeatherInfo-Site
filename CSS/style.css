@@ -28,11 +28,14 @@ header {
 	left: 0;
 	z-index: 100;
 	width: 100%;
+	
 }
 
 header .container {
 	padding: 0;
 	background-color: var(--main-color);
+	border-radius: 10px;
+
 }
 
 /* 헤더 A: 사이트 이름 */
@@ -46,11 +49,12 @@ header .container {
 	font-family: 'Montserrat', sans-serif;
 	font-size: 15px;
 	text-decoration: none;
+	align-items: center;
 }
 
 /* 헤더B: 네비게이션 메뉴 */
 .headB ul {
-	margin: 0;
+	margin: 10px;
 	padding: 0;
 	list-style: none;
 }
@@ -277,7 +281,6 @@ button:hover {
 	padding: 1% 3%;
 	border-radius: 15px;
 
-
 	background-color: #ebebeb;
 }
 .conB dt {
@@ -410,5 +413,198 @@ button:hover {
 
 /* -------------- conC -------------- */
 
+.conC {
+	margin-top: 10px;
+	/* justify-content: center;
+	width: 100%;
+	border: 1px solid black; */
+}
+
+.conC .container { /* 그래서, 부모를 flex 로 설정 */
+	display: flex;
+	width: 100%;
+	border-radius: 15px;
+	background-color: #ebebeb;
+	/* border: 1px solid black; */
+
+}
+
+.conC-box {
+	padding: 1% 3%;
+	border-radius: 15px;
+	display: table;
+	justify-content: center;
+	margin-left: auto;
+	margin-right: auto;
+
+	/* border: 1px solid black; */
+}
+.conC dt {
+	margin-bottom: 10px;
+}
+.conC dd {
+	margin-left: 0;
+}
+
+@media (min-width: 1300px) { /* 768 이상 (pc) */
+	/* flexible box 기능으로 가로 정렬 */
+	.conC .container { /* 그래서, 부모를 flex 로 설정 */
+        display: flex;
+		justify-content: center;
+		width: 100%;
+	  	margin-left: auto;
+		margin-right: auto;
+	}
+
+	.conC-box {
+		display: flex;
+		width: 1300px;
+		align-items: center;  /* 세로 방향으로 중앙 정렬 */
+		justify-content: space-between; /* 왼쪽 오른쪽 끝방향으로 정렬 */
+	}
+
+	.conC {
+		justify-content: center;
+		max-width: 1300px;  /* 최대 폭 지정 */
+		max-width: var(--large-width);
+		margin-left: auto;
+		margin-right: auto;
+	}
+    
+}
+
+#news_notice {
+    float: left;
+    width: 560px;
+	margin: 1% 0;
+    /* padding-left: 30px; */
+	
+}
+
+
+#news_notice table {
+	
+    width: 560px;
+    border-collapse:collapse;
+    text-align: center;    
+}
+
+#news_notice td {
+    padding:6px 4px;
+    border-bottom-width: 1px;
+    border-bottom-style: dotted;
+    border-bottom-color: #999;
+}
+
+#news_notice td.contxt {
+
+	width: 400px;
+    background-image: url(../images/tr_back.gif);
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding-left: 15px;
+    text-align: left;
+	display: block;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+    color: #333;
+}
+#news_notice a {
+
+    color: #333;
+    text-decoration: none;
+}
+#news_notice a:hover {
+    text-decoration: none;
+    color: #F90;
+}
+
+/* -------------- conD -------------- */
+
+#job_notice {
+    width: 560px;
+	margin: 1% 0;
+
+    /* padding-left: 30px; */
+	
+}
+
+
+#job_notice table {
+	
+    width: 560px;
+    border-collapse:collapse;
+    text-align: center;    
+}
+
+#job_notice td {
+    padding:6px 4px;
+    border-bottom-width: 1px;
+    border-bottom-style: dotted;
+    border-bottom-color: #999;
+}
+
+#job_notice td.contxt {
+
+	width: 400px;
+    background-image: url(../images/tr_back.gif);
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding-left: 15px;
+    text-align: left;
+	display: block;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+    color: #333;
+}
+#job_notice a {
+
+    color: #333;
+    text-decoration: none;
+}
+#job_notice a:hover {
+    text-decoration: none;
+    color: #F90;
+}
+
+.clear {
+    clear: both;
+}
+
 
 /* ----------------------------------- contents end ----------------------------------- */
+
+/* ----------------------------------- footer start ----------------------------------- */
+footer {
+	margin-top: 2px;
+    height: 50px;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--main-color);
+	border-radius: 10px;
+
+	
+}
+
+footer #copy {
+	margin: 0 1% 0 1% ;
+	padding: 5px;
+	font-family: seo;
+    font-size: 15px;
+	text-align: left;
+}
+
+@media (min-width: 1300px) { /* 768 이상 (pc) */
+	/* flexible box 기능으로 가로 정렬 */
+	footer { /* 그래서, 부모를 flex 로 설정 */
+		width: 1300px;
+	  	margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+
+/* ----------------------------------- footer end ----------------------------------- */
