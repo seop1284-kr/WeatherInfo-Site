@@ -222,52 +222,68 @@ $(document).ready(function() {
 
     // zoneCode 위치 검색 함수
     $('#locationSearchBtn').click(function() {
+        // 지역명 값 검증
         if ($('#addr').val().trim() == "") {
             alert("지역명이 비어있습니다.");
             return;
         }
-        var res = $("#locationSearchRes");
-        var lines = [];
 
+        // res 결과가 들어갈 html element
+        var res = $("#locationSearchRes");
+        
         res.load("data/zone_code.txt", function (data) {
-            lines = data.split("\n");
-            var text = [];
-            for (i = 0; i < lines.length; i++) {
-                var table = "<tr><th>code</th><th>name</th><th>parentname</th>";
-                
+            var lines = data.split("\n");
+            var table = "<tr><th>코드번호</th><th>시/구</th><th>동/면</th><th> </th></tr>";
+
+            for (i = 0; i < lines.length; i++) {    
                 var line = lines[i];
                 if ( line.includes($('#addr').val()) ) {
                     var elements = line.replace(/code=|name=|parentCode=|parentName=|gridX=|gridY=/g, "").split(", ");
                     if (elements[3] == 'null'  || elements[0].length < 10) continue;
-                    text.push(elements[3] + " " + elements[1]  + " " + elements[0] + "<br>");
+                    table += "<tr>";
+                    table += "<td>" + elements[0] + "</td>";
+                    table += "<td>" + elements[3] + "</td>";
+                    table += "<td>" + elements[1] + "</td>";
+                    table += '<td><button type="button" name="add" value="' + elements[0] + '">선택</button></td>' ;
+                    table += "</tr>";
                 }
             }
 
-            var resTxt = '';
-            for (i = 0; i < 10; i++) {
-                if (text[i] == null) break;
-                resTxt += text[i];
-            }
-            res.html(resTxt);
+            res.html(table);
             res.css("display", "block");
+
+            // zone code 입력 함수
+            $("button[name='add']").on("click", function () {
+                zone = $(this).val();
+                dongReqUrl = dongUrl + zone;
+                createConA(dongReqUrl, global_theme);
+
+                $("#locationModal").css("display","none");
+                $("#locationSearchRes").empty();
+                $('#addr').val('');
+                $('#zoneCode').val('')
+            });
         })
     });
 
-    // zone code 입력 함수
-    $('#zoneCodeBtn').click(function() {
-        if ($('#zoneCode').val() == "") {
-            alert("zonecode를 입력하세요.");
-            return;
-        }
-        zone = $('#zoneCode').val();
-        dongReqUrl = dongUrl + zone;
-        createConA(dongReqUrl, global_theme);
 
-        $("#locationModal").css("display","none");
-        $("#locationSearchRes").empty();
-        $('#addr').val('');
-        $('#zoneCode').val('')
-    })
+    
+
+
+    // $('#zoneCodeBtn').click(function() {
+    //     if ($('#zoneCode').val() == "") {
+    //         alert("zonecode를 입력하세요.");
+    //         return;
+    //     }
+    //     zone = $('#zoneCode').val();
+    //     dongReqUrl = dongUrl + zone;
+    //     createConA(dongReqUrl, global_theme);
+
+    //     $("#locationModal").css("display","none");
+    //     $("#locationSearchRes").empty();
+    //     $('#addr').val('');
+    //     $('#zoneCode').val('')
+    // })
 
 
     // About 모달 버튼
@@ -288,6 +304,9 @@ $(document).ready(function() {
     // When the user clicks on <span> (x), close the modal
     $('.close').click(function() {
         $("#locationModal").css("display","none");
+        $("#locationSearchRes").empty();
+        $('#addr').val('');
+        $('#zoneCode').val('')
     })
 
     // theme 모달 버튼
@@ -309,6 +328,9 @@ $(document).ready(function() {
             document.getElementById("myModal").style.display = "none";
             document.getElementById("locationModal").style.display = "none";
             document.getElementById("themeModal").style.display = "none";
+            $("#locationSearchRes").empty();
+            $('#addr').val('');
+            $('#zoneCode').val('')
         }
     }
     

@@ -23,8 +23,6 @@
 <script src="./script/myScript.js"></script>
 <link rel="stylesheet" href="./CSS/style.css">
 
-
-
 <body>
   <!-- header start -->
   <header>
@@ -100,15 +98,16 @@
           <table>
             <tr>
               <td><input class="text-short" type="text" id="addr" name="addr" placeholder="ex) 판교"></td>
-              <td><button id="locationSearchBtn" type="button">정보 가져오기</button></td>
+              <td><button id="locationSearchBtn" type="button">코드 검색</button></td>
             </tr>
           </table>
-          <div id="locationSearchRes" style="display: none;">
-          </div>
+          <table id="locationSearchRes" style="display: none;">
+          </table>
         </div>
         <div class="modal-footer">
-          <input type="number" id="zoneCode" name="zoneCode" placeholder="zone code">
-          <button type="button" id="zoneCodeBtn">검색</button>
+          <!-- <input type="number" id="zoneCode" name="zoneCode" placeholder="zone code">
+          <button type="button" id="zoneCodeBtn">검색</button> -->
+          <p>날씨정보가 없는 지역도 있습니다.</p>
 
         </div>
       </div>
@@ -122,15 +121,17 @@
           <h2>테마 설정</h2>
         </div>
         <div class="modal-body">
+          <p> </p>
           <input type="radio" name="themeOption" value="theme-default" checked> 벡터 이미지
           <input type="radio" name="themeOption" value="theme-1"> 사진
-          <input type="radio" name="themeOption" value="theme-2"> 직접그림
+          <input type="radio" name="themeOption" value="theme-2"> 직접그림 <br><br>
         </div>
         <div class="modal-footer">
+          <p>선택한 테마에 맞춰 동네 날씨 24의 그림이 바뀝니다. </p>
         </div>
       </div>
     </div>
-
+  </header>
 
 
 
@@ -241,6 +242,18 @@
     </div>
   </section>
   
+  <!-- content C -->
+  <section class="conC">
+    <div class="container">
+      <div class="conC-box">
+        <dl>
+          <dt style="font-weight: bold;"><i class="far fa-newspaper"></i> 기상 포커스 </dt>
+          <dd id="contentB-content"></dd>
+        </dl>
+      </div>
+    </div>
+    </section>
+  </section>
 
   <!-- main contents end -->
 

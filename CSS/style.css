@@ -11,8 +11,7 @@
 
 /* 기본 설정: 페이지 전체 */
 body {
-	background-color: #fff;	/* temp */
-	
+	background-image: "images/blonde-1867768_640.jpg";
     margin: 0;
     font-family: '맑은 고딕',
         'Apple SD Gothic Neo', 
@@ -165,6 +164,7 @@ header .container {
 }
 /* Modal Body */
 .modal-body {
+
 	padding: 2px 16px;
 }
 
@@ -198,6 +198,57 @@ header .container {
 	cursor: pointer;
 }
 
+/* location modal table */
+#locationSearchRes {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10px;
+	border-collapse: collapse;
+
+}
+
+#locationSearchRes th{
+	border : 1px solid black;
+	border-collapse: collapse;
+}
+
+#locationSearchRes td {
+	padding : 5px 15px;
+	border : 1px solid black;
+	border-collapse: collapse;
+}
+
+/* text 입력 input 꾸미기 */
+input[type=text] {
+    color : blue;
+	font-weight: bold;
+	
+	padding: 5px;
+}
+input[type=text]:hover {
+    background : aliceblue;
+}
+
+input[type=text] {
+    border : 2px solid skyblue;
+    border-radius : 5px;
+}
+
+/* 버튼 꾸미기 */
+button {
+	border-radius: 5px;
+	margin: 4px;
+	border: 1px solid skyblue;
+	background-color: rgba(0,0,0,0);
+	padding: 5px;
+}
+button:hover {
+	color:white;
+	background-color: skyblue;
+}
+
+
 /* ----------------------------------- header end ----------------------------------- */
 
 
@@ -205,9 +256,10 @@ header .container {
 
 /* -------------- conB -------------- */
 .conB {
-	/* justify-content: center; */
-	/* width: 100%; */
-	/* border: 1px solid black; */
+	margin-top: 70px;
+	/* justify-content: center;
+	width: 100%;
+	border: 1px solid black; */
 }
 
 .conB .container {
@@ -269,6 +321,7 @@ header .container {
 	/* border: 1px solid black; */
 }
 .conA .container {
+	display: table;
 	justify-content: center;
 	margin-left: auto;
 	margin-right: auto;
