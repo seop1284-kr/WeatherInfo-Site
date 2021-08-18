@@ -1,12 +1,12 @@
 /* 기본색상 */
 :root {
-    --main-color: #5D9AB2;
-    --accent-color: #BF6A7A;
-    --dark-main-color: #2B5566;
-    --text-bright-color: #fff;
-    --icon-color: #fff;
-    --icon-bk-color: #ddd;
-    --large-width: 1300px;    
+	--main-color: #5D9AB2;
+	--accent-color: #BF6A7A;
+	--dark-main-color: #2B5566;
+	--text-bright-color: #fff;
+	--icon-color: #fff;
+	--icon-bk-color: #ddd;
+	--large-width: 1300px;
 }
 
 /* 기본 설정: 페이지 전체 */
@@ -14,10 +14,10 @@ body {
 	background-image: url("../images/background.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
-    margin: 0;
-    font-family: '맑은 고딕',
-        'Apple SD Gothic Neo', 
-        sans-serif;
+	margin: 0;
+	font-family: '맑은 고딕',
+		'Apple SD Gothic Neo',
+		sans-serif;
 }
 
 /* ----------------------------------- header start ----------------------------------- */
@@ -28,7 +28,7 @@ header {
 	left: 0;
 	z-index: 100;
 	width: 100%;
-	
+
 }
 
 header .container {
@@ -82,16 +82,19 @@ header .container {
 }
 
 .headB div:hover {
-	background-color: rgba(0,0,0,0.3);
+	background-color: rgba(0, 0, 0, 0.3);
 }
 
 @media (min-width: 768px) {
-    /* 768 이상 큰 화면에서는 */
-    header .container {
+
+	/* 768 이상 큰 화면에서는 */
+	header .container {
 		/* 사이트이름 과 내비게이션 메뉴를 각각 왼쪽/오른쪽으로 배치하기 */
 		display: flex;
-		align-items: center;  /* 세로 방향으로 중앙 정렬 */
-		justify-content: space-between; /* 왼쪽 오른쪽 끝방향으로 정렬 */
+		align-items: center;
+		/* 세로 방향으로 중앙 정렬 */
+		justify-content: space-between;
+		/* 왼쪽 오른쪽 끝방향으로 정렬 */
 
 		/* 하단 컨텐츠와 너비 맞추기*/
 		max-width: 1300px;
@@ -99,30 +102,33 @@ header .container {
 		margin-left: auto;
 		margin-right: auto;
 	}
-	
+
 	.headB ul {
 		/* 링크를 가로로 정렬 */
-        display: flex;
+		display: flex;
 	}
 
-    /* 큰 화면에선 메뉴 보이기 */
+	/* 큰 화면에선 메뉴 보이기 */
 	.headB {
 		display: block !important;
 	}
 
-    /* 큰 화면에선 토글 메뉴 숨기기 */
-    .headC {
+	/* 큰 화면에선 토글 메뉴 숨기기 */
+	.headC {
 		display: none;
 	}
 }
 
 /* 헤더C: 토글 버튼 */
-@media (max-width: 767px) {  /* 768 이하 */
+@media (max-width: 767px) {
+
+	/* 768 이하 */
 	.haedA {
-		width: 0; 
+		width: 0;
 		height: 0;
 		font-size: 10px;
 	}
+
 	/* 헤더 D: more menu */
 	.headD {
 		line-height: 70px;
@@ -167,17 +173,26 @@ header .container {
 /* about */
 /* The Modal (background) */
 .modal {
-	display: none; /* Hidden by default */
-	position: fixed; /* Stay in place */
-	z-index: 1; /* Sit on top */
+	display: none;
+	/* Hidden by default */
+	position: fixed;
+	/* Stay in place */
+	z-index: 1;
+	/* Sit on top */
 	left: 0;
 	top: 0;
-	width: 100%; /* Full width */
-	height: 100%; /* Full height */
-	overflow: auto; /* Enable scroll if needed */
-	background-color: rgb(0,0,0); /* Fallback color */
-	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	width: 100%;
+	/* Full width */
+	height: 100%;
+	/* Full height */
+	overflow: auto;
+	/* Enable scroll if needed */
+	background-color: rgb(0, 0, 0);
+	/* Fallback color */
+	background-color: rgba(0, 0, 0, 0.4);
+	/* Black w/ opacity */
 }
+
 /* Modal Content */
 .modal-content {
 	position: relative;
@@ -188,7 +203,7 @@ header .container {
 	border: 1px solid #888;
 	width: 80%;
 	max-width: 600px;
-	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	/* animation-name: animatetop; */
 	animation-duration: 0.4s
 }
@@ -199,6 +214,7 @@ header .container {
 	background-color: #5cb85c;
 	color: white;
 }
+
 /* Modal Body */
 .modal-body {
 
@@ -216,8 +232,15 @@ header .container {
 
 /* Add Animation */
 @keyframes animatetop {
-	from {top: 0px; opacity: 0}
-	to {top: 100px; opacity: 1}
+	from {
+		top: 0px;
+		opacity: 0
+	}
+
+	to {
+		top: 100px;
+		opacity: 1
+	}
 }
 
 /* The Close Button */
@@ -245,31 +268,32 @@ header .container {
 
 }
 
-#locationSearchRes th{
-	border : 1px solid black;
+#locationSearchRes th {
+	border: 1px solid black;
 	border-collapse: collapse;
 }
 
 #locationSearchRes td {
-	padding : 5px 15px;
-	border : 1px solid black;
+	padding: 5px 15px;
+	border: 1px solid black;
 	border-collapse: collapse;
 }
 
 /* text 입력 input 꾸미기 */
 input[type=text] {
-    color : blue;
+	color: blue;
 	font-weight: bold;
-	
+
 	padding: 5px;
 }
+
 input[type=text]:hover {
-    background : aliceblue;
+	background: aliceblue;
 }
 
 input[type=text] {
-    border : 2px solid skyblue;
-    border-radius : 5px;
+	border: 2px solid skyblue;
+	border-radius: 5px;
 }
 
 /* 버튼 꾸미기 */
@@ -277,11 +301,12 @@ button {
 	border-radius: 5px;
 	margin: 4px;
 	border: 1px solid skyblue;
-	background-color: rgba(0,0,0,0);
+	background-color: rgba(0, 0, 0, 0);
 	padding: 5px;
 }
+
 button:hover {
-	color:white;
+	color: white;
 	background-color: skyblue;
 }
 
@@ -304,40 +329,49 @@ button:hover {
 	margin-left: auto;
 	margin-right: auto;
 	/* border: 1px solid black; */
-	
+
 }
+
 .conB-box {
-	
+
 	margin-top: 5px;
 	padding: 1% 3%;
 	border-radius: 15px;
 
 	background-color: #ebebeb;
 }
+
 .conB dt {
 	margin-bottom: 10px;
 }
+
 .conB dd {
 	margin-left: 0;
 }
-@media (min-width: 1300px) { /* 768 이상 (pc) */
+
+@media (min-width: 1300px) {
+
+	/* 768 이상 (pc) */
 	.conB-box {
 		width: 1300px;
 	}
 
 	.conB {
 		justify-content: center;
-		max-width: 1300px;  /* 최대 폭 지정 */
+		max-width: 1300px;
+		/* 최대 폭 지정 */
 		max-width: var(--large-width);
 		margin-left: auto;
 		margin-right: auto;
 	}
-    /* flexible box 기능으로 가로 정렬 */
-	.conB .container { /* 그래서, 부모를 flex 로 설정 */
-        display: flex;
+
+	/* flexible box 기능으로 가로 정렬 */
+	.conB .container {
+		/* 그래서, 부모를 flex 로 설정 */
+		display: flex;
 		justify-content: center;
 		width: 100%;
-	  	margin-left: auto;
+		margin-left: auto;
 		margin-right: auto;
 	}
 }
@@ -354,6 +388,7 @@ button:hover {
 	/* background-color: rgb(212, 250, 237); */
 	/* border: 1px solid black; */
 }
+
 .conA .container {
 	display: table;
 	justify-content: center;
@@ -377,21 +412,25 @@ button:hover {
 
 
 
-@media (min-width: 1300px) { /* 768 이상 (pc) */
+@media (min-width: 1300px) {
+	/* 768 이상 (pc) */
 
 	.conA {
 		justify-content: center;
-		max-width: 1300px;  /* 최대 폭 지정 */
+		max-width: 1300px;
+		/* 최대 폭 지정 */
 		max-width: var(--large-width);
 		margin-left: auto;
 		margin-right: auto;
 	}
-    /* flexible box 기능으로 가로 정렬 */
-	.conA .container { /* 그래서, 부모를 flex 로 설정 */
-        display: flex;
+
+	/* flexible box 기능으로 가로 정렬 */
+	.conA .container {
+		/* 그래서, 부모를 flex 로 설정 */
+		display: flex;
 		justify-content: center;
 		width: 100%;
-	  	margin-left: auto;
+		margin-left: auto;
 		margin-right: auto;
 	}
 }
@@ -412,15 +451,16 @@ button:hover {
 	text-align: center;
 	transition: transform 0.6s;
 	transform-style: preserve-3d;
-	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-	
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
 }
 
 .flip-card:hover .flip-card-inner {
 	transform: rotateY(180deg);
 }
 
-.flip-card-front, .flip-card-back {
+.flip-card-front,
+.flip-card-back {
 	position: absolute;
 	width: 100%;
 	height: 100%;
@@ -451,7 +491,8 @@ button:hover {
 	border: 1px solid black; */
 }
 
-.conC .container { /* 그래서, 부모를 flex 로 설정 */
+.conC .container {
+	/* 그래서, 부모를 flex 로 설정 */
 	display: flex;
 	width: 100%;
 	border-radius: 15px;
@@ -472,49 +513,58 @@ button:hover {
 
 	/* border: 1px solid black; */
 }
+
 .conC dt {
 	margin-bottom: 10px;
 }
+
 .conC dd {
 	margin-left: 0;
 }
 
-@media (min-width: 1300px) { /* 1300 이상 (pc) */
+@media (min-width: 1300px) {
+
+	/* 1300 이상 (pc) */
 	/* flexible box 기능으로 가로 정렬 */
-	.conC .container { /* 그래서, 부모를 flex 로 설정 */
-        display: flex;
+	.conC .container {
+		/* 그래서, 부모를 flex 로 설정 */
+		display: flex;
 		justify-content: center;
 		width: 100%;
-	  	margin-left: auto;
+		margin-left: auto;
 		margin-right: auto;
 	}
 
 	.conC-box {
 		display: flex;
 		width: 1300px;
-		align-items: center;  /* 세로 방향으로 중앙 정렬 */
-		justify-content: space-between; /* 왼쪽 오른쪽 끝방향으로 정렬 */
+		align-items: center;
+		/* 세로 방향으로 중앙 정렬 */
+		justify-content: space-between;
+		/* 왼쪽 오른쪽 끝방향으로 정렬 */
 	}
 
 	.conC {
 		justify-content: center;
-		max-width: 1300px;  /* 최대 폭 지정 */
+		max-width: 1300px;
+		/* 최대 폭 지정 */
 		max-width: var(--large-width);
 		margin-left: auto;
 		margin-right: auto;
 	}
+
 	#news_notice td.contxt {
 
-		
+
 		background-image: url(../images/tr_back.gif);
 		background-repeat: no-repeat;
 		background-position: left center;
 		padding-left: 15px;
 		text-align: left;
 		display: block;
-		white-space:nowrap;
-		overflow:hidden;
-		text-overflow:ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 		color: #333;
 	}
 
@@ -523,75 +573,77 @@ button:hover {
 		width: 560px;
 		margin: 1% 0;
 		/* padding-left: 30px; */
-		
+
 	}
-	
+
 	#news_notice table {
-		
+
 		width: 560px;
-		border-collapse:collapse;
-		text-align: center;    
+		border-collapse: collapse;
+		text-align: center;
 	}
 
 	#job_notice {
 		width: 560px;
 		margin: 1% 0;
 	}
-	
-	
+
+
 	#job_notice table {
-		
+
 		width: 560px;
-		border-collapse:collapse;
-		text-align: center;    
+		border-collapse: collapse;
+		text-align: center;
 	}
-	
-    
+
+
 }
 
 #news_notice {
-	
-    float: left;
+
+	float: left;
 	margin: 1% 0;
-    /* padding-left: 30px; */
-	
+	/* padding-left: 30px; */
+
 }
 
 
 #news_notice table {
-	
-    border-collapse:collapse;
-    text-align: center;    
+
+	border-collapse: collapse;
+	text-align: center;
 }
 
 #news_notice td {
-    padding:6px 4px;
-    border-bottom-width: 1px;
-    border-bottom-style: dotted;
-    border-bottom-color: #999;
+	padding: 6px 4px;
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color: #999;
 }
 
 #news_notice td.contxt {
 	max-width: 400px;
-    background-image: url(../images/tr_back.gif);
-    background-repeat: no-repeat;
-    background-position: left center;
-    padding-left: 15px;
-    text-align: left;
+	background-image: url(../images/tr_back.gif);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-left: 15px;
+	text-align: left;
 	display: block;
-	white-space:nowrap;
-	overflow:hidden;
-	text-overflow:ellipsis;
-    color: #333;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	color: #333;
 }
+
 #news_notice a {
 
-    color: #333;
-    text-decoration: none;
+	color: #333;
+	text-decoration: none;
 }
+
 #news_notice a:hover {
-    text-decoration: none;
-    color: #F90;
+	text-decoration: none;
+	color: #F90;
 }
 
 
@@ -605,49 +657,52 @@ button:hover {
 
 
 #job_notice table {
-	
-    border-collapse:collapse;
-    text-align: center;    
+
+	border-collapse: collapse;
+	text-align: center;
 }
+
 #job_notice tr {
 	width: 100%;
 	overflow: hidden;
 }
 
 #job_notice td {
-    padding:6px 4px;
-    border-bottom-width: 1px;
-    border-bottom-style: dotted;
-    border-bottom-color: #999;
-	
+	padding: 6px 4px;
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color: #999;
+
 }
 
 #job_notice td.contxt {
 
 	width: 400px;
-    background-image: url(../images/tr_back.gif);
-    background-repeat: no-repeat;
-    background-position: left center;
-    padding-left: 15px;
-    text-align: left;
+	background-image: url(../images/tr_back.gif);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-left: 15px;
+	text-align: left;
 	display: block;
-	white-space:nowrap;
-	overflow:hidden;
-	text-overflow:ellipsis;
-    color: #333;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	color: #333;
 }
+
 #job_notice a {
 
-    color: #333;
-    text-decoration: none;
+	color: #333;
+	text-decoration: none;
 }
+
 #job_notice a:hover {
-    text-decoration: none;
-    color: #F90;
+	text-decoration: none;
+	color: #F90;
 }
 
 .clear {
-    clear: both;
+	clear: both;
 }
 
 
@@ -662,26 +717,74 @@ footer {
 	background-color: var(--main-color);
 	border-radius: 10px;
 
-	
+
 }
 
 footer #copy {
-	margin: 0 1% 0 1% ;
+	margin: 0 1% 0 1%;
 	padding: 5px;
 	font-family: seo;
-    font-size: 15px;
+	font-size: 15px;
 	text-align: left;
 	float: left;
 }
 
-@media (min-width: 1300px) { /* 1300 이상 (pc) */
+@media (min-width: 1300px) {
+
+	/* 1300 이상 (pc) */
 	footer {
 		width: var(--large-width);
 		height: 50px;
-	  	margin-left: auto;
+		margin-left: auto;
 		margin-right: auto;
 	}
 }
 
 
 /* ----------------------------------- footer end ----------------------------------- */
+
+/* ----------------------------------- .contact menu1 start  ----------------------------------- */
+.contact input[type=text],
+.contact input[type=email],
+select,
+textarea {
+	width: 100%;
+	padding: 12px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	margin-top: 6px;
+	margin-bottom: 16px;
+	resize: vertical;
+}
+
+.contact input[type=submit] {
+	background-color: #04AA6D;
+	color: white;
+	padding: 12px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.contact input[type=submit]:hover {
+	background-color: #45a049;
+}
+
+.contact .container {
+	margin-top: 70px;
+	max-width: var(--large-width);
+	align-content: center;
+	box-sizing: border-box;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 15px;
+	background-color: #f2f2f2;
+	padding: 20px;
+}
+.contact Button {
+	width: 100%;
+	font-size: 20px;
+}
+
+/* ----------------------------------- .contact menu1 end  ----------------------------------- */
