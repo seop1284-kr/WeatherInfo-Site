@@ -50,7 +50,7 @@ $(document).ready(function() {
         $.ajax({
             url: focusUrl,
             type : "GET",
-            cache : false,
+            cache : true,
             success : function(data, status) {
                 if (status == "success") {
                     parseXML(data);
@@ -81,7 +81,7 @@ $(document).ready(function() {
         $.ajax({
             url: jobUrl,
             type : "GET",
-            cache : false,
+            cache : true,
             success : function(data, status) {
                 if (status == "success") {
                     parseXML(data);
@@ -113,7 +113,7 @@ $(document).ready(function() {
         $.ajax({
             url : midReqUrl,
             type : "GET",
-            cache : false,
+            cache : true,
             success : function(data, status) {
                 if (status == "success") {
                     parseXML(data);
@@ -132,7 +132,7 @@ $(document).ready(function() {
         $.ajax({
             url : dongReqUrl,
             type : "GET",
-            cache : false,
+            cache : true,
             success : function(data, status) {
                 if (status == "success") {
                     parseXML(data, theme);

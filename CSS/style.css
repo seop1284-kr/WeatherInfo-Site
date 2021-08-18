@@ -52,6 +52,20 @@ header .container {
 	align-items: center;
 }
 
+/* 헤더 D: more menu */
+.headD {
+	display: inline-block;
+	line-height: 70px;
+	padding-left: 20px;
+	padding-right: 20px;
+	color: #fff;
+	color: var(--text-bright-color);
+	font-family: 'Montserrat', sans-serif;
+	font-size: 15px;
+	text-decoration: none;
+	align-items: center;
+}
+
 /* 헤더B: 네비게이션 메뉴 */
 .headB ul {
 	margin: 10px;
@@ -104,6 +118,23 @@ header .container {
 
 /* 헤더C: 토글 버튼 */
 @media (max-width: 767px) {  /* 768 이하 */
+	.haedA {
+		width: 0; 
+		height: 0;
+		font-size: 10px;
+	}
+	/* 헤더 D: more menu */
+	.headD {
+		line-height: 70px;
+		color: #fff;
+		color: var(--text-bright-color);
+		font-family: 'Montserrat', sans-serif;
+		font-size: 10px;
+		text-decoration: none;
+		padding: 0;
+	}
+
+
 	/* 작은 화면 전용 설정 */
 	header .container-small {
 		display: flex;
