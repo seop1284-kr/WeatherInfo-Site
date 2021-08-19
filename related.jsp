@@ -1,3 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<%
+	String menu = "domestic";  // menu parameter 가 없으면 domestic page 디폴트
+	
+	String menu_param = request.getParameter("menu");
+	if(menu_param != null){
+		try{			
+			menu = menu_param;
+		} catch(NumberFormatException e){
+			
+		}
+	}
+	
+%>  
+
+
+
+    
 <!DOCTYPE html>
 <html lang='ko'>
 
@@ -33,15 +53,26 @@
       <div class="container-small">
         <!-- 작은 화면의 배치를 위한 컨테이너-->
         <a class="headA" href="index.html" style="align-items: center;"><img src="images/logo.png" style="vertical-align: middle;" width="30" height="30" alt="logo"> 우리동네 날씨</a>
-        <a class="headD" href="login.html" style="align-items: center; margin-right: auto;">Login</a>
+        <a class="headD" href="related.jsp" style="align-items: center; margin-right: auto;">Related</a>
         <a class="headD" href="contact.html" style="align-items: center; margin-right: auto;">ContactUs</a>
       </div>
     </div>
   </header>
-
-
-
-  <!--main contents start-->
+  <!--main contents start (jsp)-->
+  <!-- 반응형 본문 시작 -->
+  <div class="container" style="margin-top:30px">
+    <div class="row">
+    
+    <jsp:include page="./layout/left.jsp">
+      <jsp:param value="<%= menu %>" name="menu"/>
+    </jsp:include>
+    
+    <% String article_page = "./layout/" + menu + ".jsp"; %>
+    <jsp:include page="<%= article_page %>"/>
+      
+    </div>
+  </div>
+  <!-- 반응형 본문 끝 -->
 
 
 
