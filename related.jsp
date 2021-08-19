@@ -58,12 +58,14 @@
       </div>
     </div>
   </header>
+
   <!--main contents start (jsp)-->
   <!-- 반응형 본문 시작 -->
+  
   <div class="container" style="margin-top:30px">
     <div class="row">
     
-    <jsp:include page="./layout/left.jsp">
+    <jsp:include page="./layout/rel_header.jsp">
       <jsp:param value="<%= menu %>" name="menu"/>
     </jsp:include>
     
@@ -73,11 +75,6 @@
     </div>
   </div>
   <!-- 반응형 본문 끝 -->
-
-
-
-
-  
 
   <!-- main contents end -->
 
