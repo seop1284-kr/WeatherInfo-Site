@@ -146,8 +146,13 @@ $(document).ready(function() {
     
         // conA 내용 parse
         function parseXML(xmlDOM, theme) {
+            
             var pubDate = $(xmlDOM).find('pubDate').text();
             var location = $(xmlDOM).find('category').text();
+            if (location == "") {
+                alert("예보가 없는 지역입니다 ㅠㅠ");
+                return;
+            }
             $('#location').text(location);
             $('#pubDate').text(pubDate)
 
