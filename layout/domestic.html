@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+    수도권 기상청 https://www.kma.go.kr/metropolitan/html/main/index.jsp
+    부산 지방 기상청 https://www.kma.go.kr/busan/html/main/index.jsp
+    광주 지방 기상청 https://www.kma.go.kr/gwangju/html/main/index.jsp
+    강원 지방 기상청 https://www.kma.go.kr/gangwon/html/main/index.jsp
+    대전 지방 기상청 https://www.kma.go.kr/daejeon/html/main/index.jsp
+    대구 지방 기상청 https://www.kma.go.kr/daegu/html/main/index.jsp -->
+    <div class="domestic-table">
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+
+        <table id="myTable">
+            <tr class="header">
+                <th style="width:25%;">기관</th>
+                <th style="width:25%;">나라</th>
+                <th style="width:50%;">홈페이지 주소</th>
+            </tr>
+            <tr>
+                <td>수도권 기상청</td>
+                <td>Korea</td>
+                <td><a href="https://www.kma.go.kr/metropolitan/html/main/index.jsp">https://www.kma.go.kr/metropolitan/html/main/index.jsp</a></td>
+            </tr>
+            <tr>
+                <td>부산 지방 기상청</td>
+                <td>Korea</td>
+                <td><a href="https://www.kma.go.kr/busan/html/main/index.jsp">https://www.kma.go.kr/busan/html/main/index.jsp</a></td>
+            </tr>
+            <tr>
+                <td>광주 지방 기상청</td>
+                <td>Korea</td>
+                <td><a href="https://www.kma.go.kr/gwangju/html/main/index.jsp">https://www.kma.go.kr/gwangju/html/main/index.jsp</a></td>
+            </tr>
+            <tr>
+                <td>강원 지방 기상청</td>
+                <td>Korea</td>
+                <td><a href=" https://www.kma.go.kr/gangwon/html/main/index.jsp"> https://www.kma.go.kr/gangwon/html/main/index.jsp</a></td>
+            </tr>
+            <tr>
+                <td>대전 지방 기상청</td>
+                <td>Korea</td>
+                <td><a href="https://www.kma.go.kr/daejeon/html/main/index.jsp">https://www.kma.go.kr/daejeon/html/main/index.jsp</a></td>
+            </tr>
+            <tr>
+                <td>대구 지방 기상청</td>
+                <td>Korea</td>
+                <td><a href="https://www.kma.go.kr/daegu/html/main/index.jsp ">https://www.kma.go.kr/daegu/html/main/index.jsp </a></td>
+            </tr>
+            <tr>
+                <td>제주 지방 기상청</td>
+                <td>Korea</td>
+                <td><a href="https://www.kma.go.kr/jeju/html/main/index.jsp">https://www.kma.go.kr/jeju/html/main/index.jsp</a></td>
+            </tr>
+            <tr>
+                <td>미국 기상청</td>
+                <td>United States</td>
+                <td><a href="https://www.weather.gov/">https://www.weather.gov/</a></td>
+            </tr>
+            <tr>
+                <td>일본 기상청</td>
+                <td>Japan</td>
+                <td><a href="http://www.jma.go.jp/jma/index.html">http://www.jma.go.jp/jma/index.html</a></td>
+            </tr>
+            <tr>
+                <td>중국 기상청</td>
+                <td>China</td>
+                <td><a href="http://www.cma.gov.cn/">http://www.cma.gov.cn/</a></td>
+            </tr>
+            <tr>
+                <td>영국 기상청</td>
+                <td>United Kindom</td>
+                <td><a href="https://www.metoffice.gov.uk/">https://www.metoffice.gov.uk/</a></td>
+            </tr>
+            <tr>
+                <td>프랑스 기상청</td>
+                <td>France</td>
+                <td><a href="http://www.meteo.fr/e_index.html">http://www.meteo.fr/e_index.html</a></td>
+            </tr>
+            
+        </table>
+    </div>
+
+    <script>
+        function myFunction() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>

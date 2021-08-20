@@ -53,7 +53,7 @@
       <div class="container-small">
         <!-- 작은 화면의 배치를 위한 컨테이너-->
         <a class="headA" href="index.html" style="align-items: center;"><img src="images/logo.png" style="vertical-align: middle;" width="30" height="30" alt="logo"> 우리동네 날씨</a>
-        <a class="headD" href="related.jsp" style="align-items: center; margin-right: auto;">Related</a>
+        <a class="headD" href="introduce.jsp" style="align-items: center; margin-right: auto;">Introduce</a>
         <a class="headD" href="contact.html" style="align-items: center; margin-right: auto;">ContactUs</a>
       </div>
     </div>
@@ -65,11 +65,11 @@
   <div class="container" style="margin-top:30px">
     <div class="row">
     
-    <jsp:include page="./layout/rel_header.jsp">
+    <jsp:include page="./layout/intro_header.jsp">
       <jsp:param value="<%= menu %>" name="menu"/>
     </jsp:include>
     
-    <% String article_page = "./layout/" + menu + ".jsp"; %>
+    <% String article_page = "./layout/" + menu + ".html"; %>
     <jsp:include page="<%= article_page %>"/>
       
     </div>

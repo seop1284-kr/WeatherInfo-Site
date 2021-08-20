@@ -29,7 +29,7 @@ $(document).ready(function() {
     // https://www.weather.go.kr/weather/lifenindustry/sevice_rss.jsp
     
     // proxy server // 임시 demo // https://lily-im.tistory.com/15 // https://cors-anywhere.herokuapp.com/
-    // https://nhj12311.tistory.com/278
+    // 참고 https://nhj12311.tistory.com/278
     var proxy = "https://web-project720.herokuapp.com/";
 
     // theme
@@ -37,7 +37,7 @@ $(document).ready(function() {
 
     // 동네
     var dongUrl = proxy + "http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=";
-    var zone = "4113565000";
+    var zone = "4113565000"; // default 경기도 성남시분당구 판교동   
     var dongReqUrl = dongUrl + zone;
     
     // 중기 
@@ -149,10 +149,7 @@ $(document).ready(function() {
             
             var pubDate = $(xmlDOM).find('pubDate').text();
             var location = $(xmlDOM).find('category').text();
-            if (location == "") {
-                alert("예보가 없는 지역입니다 ㅠㅠ");
-                return;
-            }
+
             $('#location').text(location);
             $('#pubDate').text(pubDate)
 
