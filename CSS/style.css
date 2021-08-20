@@ -998,6 +998,7 @@ textarea {
 	margin-left: auto;
 	background-color: #ddd;
 	padding: 10px;
+	overflow-x:auto
 }
 
 #myInput {
@@ -1023,10 +1024,14 @@ textarea {
 #myTable td {
 	text-align: left;
 	padding: 12px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 #myTable tr {
 	border-bottom: 1px solid #ddd;
+	
 }
 
 #myTable tr.header,
