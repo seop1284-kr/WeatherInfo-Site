@@ -28,22 +28,26 @@ $(document).ready(function() {
     // 기상청 동네예보 rss url
     // https://www.weather.go.kr/weather/lifenindustry/sevice_rss.jsp
     
+    // proxy server // 임시 demo // https://lily-im.tistory.com/15 // https://cors-anywhere.herokuapp.com/
+    // https://nhj12311.tistory.com/278
+    var proxy = "https://web-project720.herokuapp.com/";
+
     // theme
     var global_theme = "theme-default"
 
     // 동네
-    var dongUrl = "http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=";
+    var dongUrl = proxy + "http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=";
     var zone = "4113565000";
     var dongReqUrl = dongUrl + zone;
     
     // 중기 
-    var midReqUrl = "http://www.kma.go.kr/weather/forecast/mid-term-rss3.jsp?stnId=108"
+    var midReqUrl = proxy +  "http://www.kma.go.kr/weather/forecast/mid-term-rss3.jsp?stnId=108"
 
     // 기상 포커스
-    var focusUrl = "http://www.kma.go.kr/servlet/NeoboardProcess?mode=rss&bid=focus&url=http%3A%2F%2Fwww.kma.go.kr%2Fnotify%2Ffocus%2Flist.jsp";
+    var focusUrl =  proxy + "http://www.kma.go.kr/servlet/NeoboardProcess?mode=rss&bid=focus&url=http%3A%2F%2Fwww.kma.go.kr%2Fnotify%2Ffocus%2Flist.jsp";
     
     // 채용 정보
-    var jobUrl = "http://www.kma.go.kr/servlet/NeoboardProcess?mode=rss&bid=recruit&url=http%3A%2F%2Fwww.kma.go.kr%2Fnotify%2Femploy%2Flist_01.jsp";
+    var jobUrl =  proxy + "http://www.kma.go.kr/servlet/NeoboardProcess?mode=rss&bid=recruit&url=http%3A%2F%2Fwww.kma.go.kr%2Fnotify%2Femploy%2Flist_01.jsp";
 
     // content C 생성 함수 (기상 포커스)
     function createConC(focusUrl) {
