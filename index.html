@@ -34,7 +34,8 @@
 
       <div class="container-small">
         <!-- 작은 화면의 배치를 위한 컨테이너-->
-        <a class="headA" href="index.html" style="align-items: center;"><img src="images/logo.png" style="vertical-align: middle;" width="30" height="30" alt="logo"> 우리동네 날씨</a>
+        <a class="headA" href="index.html" style="align-items: center;"><img src="images/logo.png"
+            style="vertical-align: middle;" width="30" height="30" alt="logo"> 우리동네 날씨</a>
         <a class="headD" href="introduce.jsp" style="align-items: center; margin-right: auto;">Introduce</a>
         <a class="headD" href="contact.html" style="align-items: center; margin-right: auto;">ContactUs</a>
 
@@ -82,7 +83,8 @@
             또한 지역과 그림 테마를 설정할 수 있는 기능을 제공하고 있습니다.
           </p>
           <p>
-            마지막으로 <span style="font-weight: bold;">기상 포커스</span>와 <span style="font-weight: bold;">기상청 채용 정보</span>에서는 기상 관련 뉴스 정보와 기상청 채용 정보를 제공합니다.
+            마지막으로 <span style="font-weight: bold;">기상 포커스</span>와 <span style="font-weight: bold;">기상청 채용 정보</span>에서는
+            기상 관련 뉴스 정보와 기상청 채용 정보를 제공합니다.
           </p>
           <p> 기상청 RSS 서비스를 사용하여 날씨 정보를 얻고 이를 활용하여 서비스를
             제공하고 있습니다.</p>
@@ -147,7 +149,10 @@
       <div class="conB-box">
         <dl>
           <dt style="font-weight: bold; padding: 0 0 0 10px;"><i class="fas fa-bullhorn "></i> 전국 기상 소식</dt>
-          <dd id="contentB-content"></dd>
+          <dd id="contentB-content">
+            <i class="fas fa-spinner fa-spin fa-3x" style="margin: 5% 10%;"></i>
+
+          </dd>
         </dl>
       </div>
     </div>
@@ -168,7 +173,7 @@
         <div id="card1" class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">
-              <img src="images/test.png" alt="Avatar" style="width: 100%">
+              <i class="fas fa-spinner fa-spin fa-3x" style="margin-top: 80%;"></i>
             </div>
             <div class="flip-card-back">
             </div>
@@ -177,7 +182,8 @@
         <div id="card2" class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">
-              <img src="images/test.png" alt="Avatar" style="width: 100%">
+              <i class="fas fa-spinner fa-spin fa-3x" style="margin-top: 80%;"></i>
+
             </div>
             <div class="flip-card-back">
             </div>
@@ -185,11 +191,12 @@
         </div>
       </span>
 
-      <span  class="row">
+      <span class="row">
         <div id="card3" class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">
-              <img src="images/test.png" alt="Avatar" style="width: 100%">
+              <i class="fas fa-spinner fa-spin fa-3x" style="margin-top: 80%;"></i>
+
             </div>
             <div class="flip-card-back">
             </div>
@@ -198,7 +205,8 @@
         <div id="card4" class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">
-              <img src="images/test.png" alt="Avatar" style="width: 100%">
+              <i class="fas fa-spinner fa-spin fa-3x" style="margin-top: 80%;"></i>
+
             </div>
             <div class="flip-card-back">
             </div>
@@ -210,7 +218,8 @@
         <div id="card5" class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">
-              <img src="images/test.png" alt="Avatar" style="width: 100%">
+              <i class="fas fa-spinner fa-spin fa-3x" style="margin-top: 80%;"></i>
+
             </div>
             <div class="flip-card-back">
             </div>
@@ -219,7 +228,8 @@
         <div id="card6" class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">
-              <img src="images/test.png" alt="Avatar" style="width: 100%">
+              <i class="fas fa-spinner fa-spin fa-3x" style="margin-top: 80%;"></i>
+
             </div>
             <div class="flip-card-back">
             </div>
@@ -231,7 +241,8 @@
         <div id="card7" class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">
-              <img src="images/test.png" alt="Avatar" style="width: 100%">
+              <i class="fas fa-spinner fa-spin fa-3x" style="margin-top: 80%;"></i>
+
             </div>
             <div class="flip-card-back">
             </div>
@@ -240,7 +251,8 @@
         <div id="card8" class="flip-card">
           <div class="flip-card-inner">
             <div class="flip-card-front">
-              <img src="images/test.png" alt="Avatar" style="width: 100%">
+              <i class="fas fa-spinner fa-spin fa-3x" style="margin-top: 80%;"></i>
+
             </div>
             <div class="flip-card-back">
             </div>
@@ -257,27 +269,32 @@
       <div class="conC-box">
         <div id="news_notice">
           <p style="font-weight: bold; padding: 0 0 0 22px;"><i class="far fa-newspaper"></i> 기상 포커스</p>
-          <table id="news_table"></table>
+          <table id="news_table">
+            <i id="news-load" class="fas fa-spinner fa-spin fa-3x" style="margin-top: 40%;"></i>
+
+          </table>
         </div>
         <!-- content D -->
         <div id="job_notice">
           <p style="font-weight: bold; padding: 0 0 0 22px;"><i class="far fa-building"></i> 기상청 채용 정보</p>
           <table id="job_table">
-            
+            <i id="job-load" class="fas fa-spinner fa-spin fa-3x" style="margin-left: 50%; margin-top: 50%;"></i>
+
           </table>
         </div>
       </div>
     </div>
   </section>
   <div class="clear"></div>
-  
+
 
   <!-- main contents end -->
 
 
   <!-- footer start -->
   <footer>
-    <img src="images/test.png" width="40" height="40" alt="Fun Web" style="float:left; margin-left: 20px;"> <p style="float:left; margin-right: 15px;">Kim Jinseob</p>
+    <img src="images/test.png" width="40" height="40" alt="Fun Web" style="float:left; margin-left: 20px;">
+    <p style="float:left; margin-right: 15px;">Kim Jinseob</p>
 
     <div id="copy">
       All contents Copyright 2021 nuri. all right reserved<br>

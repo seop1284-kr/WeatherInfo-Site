@@ -75,7 +75,7 @@ $(document).ready(function() {
                 table += "<tr><td class='contxt'><a href='" + link + "' target='_blank'>" + title + "</a></td>";
                 table += "<td>" + date + "</td></tr>"
             });
-            
+            $("#news-load").remove();
             $("#news_table").html(table);
 
         }
@@ -106,7 +106,7 @@ $(document).ready(function() {
                 table += "<tr><td class='contxt'><a href='" + link + "' target='_blank'>" + title + "</a></td>";
                 table += "<td>" + date + "</td></tr>"
             });
-            
+            $("#job-load").remove();
             $("#job_table").html(table);
 
         }
