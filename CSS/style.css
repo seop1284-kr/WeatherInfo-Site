@@ -461,6 +461,7 @@ button:hover {
 
 .flip-card-front,
 .flip-card-back {
+	font-size: 0.95rem;
 	position: absolute;
 	width: 100%;
 	height: 100%;
