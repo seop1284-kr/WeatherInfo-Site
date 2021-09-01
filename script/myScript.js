@@ -336,6 +336,11 @@ $(document).ready(function() {
 
             // zone code 입력 함수
             $("button[name='add']").on("click", function () {
+
+                // loading
+                $('#location').empty();
+                $('#pubDate').html('<i class="fas fa-spinner fa-spin" style="margin: 5%;">');
+
                 zone = $(this).val();
                 dongReqUrl = dongUrl + zone;
                 createConA(dongReqUrl, global_theme);
