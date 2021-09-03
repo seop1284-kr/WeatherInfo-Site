@@ -126,7 +126,7 @@ $(document).ready(function() {
         })
         function parseXML(xmlDOM) {
             var res = $(xmlDOM).find('wf').first().text().replaceAll('○', '');
-            res = res.replaceAll('.', ".<br>");
+            res = res.replaceAll('<br />', "<br>");
             $('#contentB-content').html(res);
         }
     }
